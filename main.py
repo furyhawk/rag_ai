@@ -36,10 +36,11 @@ def main():
         
         # 2. Construct augmented prompt
         augmented_prompt = f"""Context:
-{context}
+        {context}
 
-Question: {user_query}
-"""
+        Question: {user_query}
+        """
+        print(f"\nAugmented Prompt:\n{augmented_prompt}")
         
         # 3. Run agent
         print("Generating response...")
