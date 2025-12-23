@@ -11,5 +11,6 @@ dependencies = [
     "pydantic-ai-slim[outlines-vllm-offline]>=1.37.0",
     "pymilvus[milvus-lite]>=2.6.5",
     "sentence-transformers>=5.2.0",
+    "streamlit>=1.52.2",
     "vllm>=0.13.0",
 ]
