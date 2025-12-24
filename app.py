@@ -155,14 +155,14 @@ if model:
                 st.markdown(prompt)
 
             with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    try:
-                        # Run async query in the background loop
+                try:
+                    with st.status("Thinking...") as status:
                         response = run_async(query_document(index, prompt, top_k, model))
-                        st.markdown(response)
-                        st.session_state.messages.append({"role": "assistant", "content": response})
-                    except Exception as e:
-                        st.error(f"Error during query: {e}")
+                        status.update(label="Done!", state="complete")
+                    st.markdown(response)
+                    st.session_state.messages.append({"role": "assistant", "content": response})
+                except Exception as e:
+                    st.error(f"Error during query: {e}")
     else:
         st.info("Please ensure the data directory contains documents and click 'Reload Index & Models' if needed.")
 else:
